@@ -1,4 +1,5 @@
 // stock span similar to NGL
+// consequtive smaller or equal before it
 // being equal will also work
 
 #include<iostream>
