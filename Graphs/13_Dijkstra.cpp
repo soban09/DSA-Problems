@@ -39,7 +39,7 @@ void Dijkstra(vector<pi> graph[], int n, int a, int b){
             // if edgeWeight is less than the weight of the node then update
             if(!visited[v] && edgeWt+weight[u]<weight[v]){
                 weight[v]=edgeWt+weight[u];
-                heap.push({edgeWt,v});
+                heap.push({weight[v],v});
                 parent[v]=u;
             }
         }

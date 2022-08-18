@@ -35,11 +35,16 @@ int clearBitsInRange(int n, int i, int j){
 }
 
 int main(){
-    cout<<getIthBit(13,1)<<endl;
-    cout<<setIthBit(13,1)<<endl;
-    cout<<clearIthBit(13,0)<<endl;
-    cout<<updateIthBit(13,2,0)<<endl;
-    cout<<clearNthBits(13,3)<<endl;
-    cout<<clearBitsInRange(31,1,3)<<endl;
+    cout<<getIthBit(36,3)<<endl;
+    cout<<getIthBit(49,3)<<endl;
+    cout<<getIthBit(30,3)<<endl;
+    cout<<getIthBit(34,3)<<endl;
+    cout<<getIthBit(11,3)<<endl;
+    cout<<getIthBit(31,3)<<endl;
+    cout<<getIthBit(42,3)<<endl;
+    cout<<getIthBit(11,3)<<endl;
+    cout<<getIthBit(35,3)<<endl;
+    cout<<getIthBit(3,3)<<endl;
+    
     return 0;
 }
