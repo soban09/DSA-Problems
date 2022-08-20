@@ -4,6 +4,8 @@
 #include<unordered_map>
 using namespace std;
 
+// fixed starting to fixed ending
+
 int uniquePaths(int m, int n, vector<vector<int>> arr,vector<vector<int>> &dp){
     if(m>0 && n>0 && arr[m][n]==-1)
         return 0;

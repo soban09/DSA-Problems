@@ -4,6 +4,8 @@
 #include<unordered_map>
 using namespace std;
 
+// fixed starting to fixed ending
+
 int MinPathSum(vector<vector<int>> grid, int m, int n, vector<vector<int>> &dp){
     if(m==0 && n==0)
         return grid[0][0];
