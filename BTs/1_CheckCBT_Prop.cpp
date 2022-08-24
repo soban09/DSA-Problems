@@ -89,28 +89,28 @@ void printBetter(BinaryTree *root){
 }
 
 bool isCompleteBT(BinaryTree* root){
-        queue<BinaryTree*> q;
-        q.push(root);
+    queue<BinaryTree*> q;
+    q.push(root);
         
-        while(!q.empty()){
-            int sz=q.size();
+    while(!q.empty()){
+        int sz=q.size();
             
-            for(int i=0; i<sz; i++){
-                auto front = q.front();
-                q.pop();
+        for(int i=0; i<sz; i++){
+            auto front = q.front();
+            q.pop();
                 
-                if(front==NULL){
-                    while(!q.empty()){
-                        if(q.front()!=NULL)
-                            return false;
-                        q.pop();
-                    }
-                    return true;
+            if(front==NULL){
+                while(!q.empty()){
+                    if(q.front()!=NULL)
+                        return false;
+                    q.pop();
                 }
-                q.push(front->left);
-                q.push(front->right);
+                return true;
             }
+            q.push(front->left);
+            q.push(front->right);
         }
+    }
         return true;
     }
 
