@@ -1,9 +1,9 @@
 //a derivative of LCS
 
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
-int ShortestCommonSupSeq(string x, string y, int n, int m){
+int LPS(string x, string y, int n, int m){
     int dp[n+1][m+1];
 
     dp[0][0]=0;
@@ -18,12 +18,14 @@ int ShortestCommonSupSeq(string x, string y, int n, int m){
                 dp[i][j] = max(dp[i-1][j], dp[i][j-1]);
         }
     }
-    return m+n-dp[n][m];
+    return dp[n][m];
 }
 
 int main(){
-    string x = "AGGTAB";
-    string y = "GXTXAYB";
-    cout<<ShortestCommonSupSeq(x,y,x.size(), y.size());
+    string x = "agbcba";
+    string y = x;
+    reverse(y.begin(), y.end());
+
+    cout<<LPS(x,y,x.size(), y.size());
 return 0;
 }

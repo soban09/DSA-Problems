@@ -1,4 +1,5 @@
 //a derivative of Subset sum
+// The two subsets may or may not be of equal length
 
 #include<iostream>
 using namespace std;

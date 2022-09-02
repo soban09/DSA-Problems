@@ -1,7 +1,11 @@
 //Unbounded KnapSack
 
 #include<iostream>
+#include<vector>
 using namespace std;
+
+using vi = vector<int>;
+using vvi = vector<vi>;
 
 int KnapSack(int *v, int *wt, int W, int n){
     if(n==0 || W==0) return 0;
@@ -14,6 +18,27 @@ int KnapSack(int *v, int *wt, int W, int n){
 
 int UKnapSack(int *v, int *wt, int W, int n){
     int dp[n+1][W+1];
+
+    for(int i=0; i<=n; i++) dp[i][0] = 0;
+    for(int i=0; i<=W; i++) dp[0][i] = 0;
+
+    for(int i=1; i<=n; i++){
+        for(int j=1; j<=W; j++){
+            if(wt[i-1]<=j){
+                dp[i][j] = max(v[i-1]+dp[i][j-wt[i-1]], dp[i-1][j]);
+            }
+            else{
+                dp[i][j] = dp[i-1][j];
+            }
+        }
+    }
+    return dp[n][W];
+}
+
+int UKnapSack(int *v, int *wt, int W, int n){
+    int dp[n+1][W+1];
+
+    vector<int> prv();
 
     for(int i=0; i<=n; i++) dp[i][0] = 0;
     for(int i=0; i<=W; i++) dp[0][i] = 0;
