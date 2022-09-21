@@ -1,7 +1,15 @@
 // same as Prims Algo
-// difference
+// calculates the shortest distance between two nodes
+
+// can work for both directed and undirected
+// cannot handle negative edge graph
+// But will definitely not work when there is a negative weight cycle.
+
+// O(ElogV)
+
 //  Prims : weight[v]=edgeWeight
 //  Dijkstra : weight[v]=edgeWeight+weight[u]
+
 // using parent is only for printing MST/route
 
 #include<bits/stdc++.h>
@@ -44,8 +52,8 @@ void Dijkstra(vector<pi> graph[], int n, int a, int b){
             }
         }
     }
-    printShortestRoute(a, b, parent, weight);
-    cout<<"\npath weight : "<<weight[b];
+    // printShortestRoute(a, b, parent, weight);
+    cout<<"\npath weight : "<<weight[4];
 }
 
 int main(){

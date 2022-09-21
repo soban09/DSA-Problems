@@ -1,7 +1,16 @@
 // Adjacency List used in prims
+// Forms a MST like Kruskals
+
+//  Prims : weight[v]=edgeWeight
+//  Dijkstra : weight[v]=edgeWeight+weight[u]
+
+// Only works on undirected graph
+// can handle negative edge graph
+
 // we compare edge weight with node's weight (A node weight is a hypothetical value representing the cost to reach this node, by default it is infinte)
 // to get the least weighted node, we can use STL heap vs STL set, set is a good choice since we can update a value if we want to
 // what if you use STL heaps ? Well heap will save both updated and outdated info inside it and hence increasing the complexity!
+
 // using parent is only for printing MST/route
 
 #include<bits/stdc++.h>

@@ -1,8 +1,10 @@
 // same as Prims Algo
-// difference
-//  Prims : weight[v]=edgeWeight
-//  Dijkstra : weight[v]=edgeWeight+weight[u]
-// using parent is only for printing MST/route
+// calculates the shortest distance between two nodes
+
+// O(VE)
+
+// can work for both directed and undirected
+// can handle negative edge graph
 
 #include<bits/stdc++.h>
 using namespace std;
