@@ -38,6 +38,7 @@ vector<int> NGR(int *arr, int n){
     //     }
     //     s.push(i);
     // }
+    reverse(v.begin(), v.end());
     return v;
 }
 

@@ -12,11 +12,11 @@ bool isValid(string s) {
         else if(!st.empty() && s[i]==st.top()) st.pop();
         else return false;
     }
-    return st.empty();
+    return st.size();
 }
 
 int main(){
-    string s = "(){}[]";
+    string s = "()))";
     cout<<isValid(s);    
     return 0;
 }

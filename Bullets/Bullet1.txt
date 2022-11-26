@@ -1,0 +1,4 @@
+What is difference between backtracking and depth first search?
+
+In Backtracking, we need to restore previous state of visited node, by making visited=false, after exploring current path whereas in DFS the state of the node remains same after a path is explored so that it will not be explored again. Or we can say that pure DFS is a variant of backtracking in which state of visited nodes are not restored, and this variant is only useful for problems related to searching (reachability, etc) and not for problems involving pattern finding, for which we need to use the usual backtracking tree pruning algorithm.
+DFS is quicker than a generic backtracking algorithm, due to the reason stated above.

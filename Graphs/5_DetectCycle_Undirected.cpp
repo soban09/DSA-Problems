@@ -1,17 +1,17 @@
+// Detect Cycle in Undirected Graph using DFS
+
 #include<bits/stdc++.h>
 using namespace std;
 
-bool DetectCycle(int v, vector<int> graph[], vector<bool> &visited, vector<bool> &recStack){
+bool DetectCycle(int v, vector<int> graph[], vector<bool> &visited, int parent){
     visited[v]=true;
-    recStack[v]=true;
 
     for(auto &u:graph[v]){
-        if(!visited[u] && DetectCycle(u, graph, visited, recStack))
+        if(!visited[u] && DetectCycle(u, graph, visited, v))
             return true;
-        else if(recStack[u])
+        else if(u!=parent)
             return true;
     }
-    recStack[v]=false;
     return false;
 }
 
@@ -23,15 +23,15 @@ int main(){
     for(int i=0; i<e; i++){
         int u,v;
         cin>>u>>v;
-        // Directed graph
+        //un Directed graph
         graph[u].push_back(v);
+        graph[v].push_back(u);
     }
 
     vector<bool> visited(n, false);
-    vector<bool> recStack(n, false);
     bool ans=false;
     for(int i=0; i<n; i++){
-        if(!visited[i] && DetectCycle(i, graph, visited, recStack)){
+        if(!visited[i] && DetectCycle(i, graph, visited, -1)){
             ans=true;
             break;
         }

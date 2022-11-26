@@ -1,5 +1,5 @@
+// Creates a MST
 // Adjacency List used in prims
-// Forms a MST like Kruskals
 
 //  Prims : weight[v]=edgeWeight
 //  Dijkstra : weight[v]=edgeWeight+weight[u]

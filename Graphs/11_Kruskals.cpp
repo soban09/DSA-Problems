@@ -1,3 +1,7 @@
+// Creates MST
+
+// un directed + weighted Graph
+
 // sort the edges according to the weight and then count the edge if it doesnt forms cycle
 // same like pathCompression
 // Not represented by Adjacency List because we sort edges not vertices
