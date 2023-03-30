@@ -20,6 +20,7 @@ int FindMin(int *arr, int n){
 
     while(start<=end){
         mid = (start+end)/2;
+        cout<<mid<<" ";
         int nxt = (mid+1)%n;
         int prv = (mid+n-1)%n;
 
@@ -35,9 +36,10 @@ int FindMin(int *arr, int n){
 }
 
 int main(){
-    int arr[] = {15,18,2,5,6,7,11,12};
+    int arr[] = {4,5,6,7,0,1,2};
     int n = sizeof(arr)/sizeof(int);
     int index = FindMin(arr, n);
-    cout<<(-1)*BS(arr, 0, index-1, 11)*BS(arr, index, n-1, 11);
+    cout<<index<<endl;
+    cout<<(-1)*BS(arr, 0, index-1, 0)*BS(arr, index, n-1, 0);
     return 0;
 }

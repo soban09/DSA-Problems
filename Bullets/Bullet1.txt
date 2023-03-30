@@ -1,4 +1,21 @@
-What is difference between backtracking and depth first search?
-
-In Backtracking, we need to restore previous state of visited node, by making visited=false, after exploring current path whereas in DFS the state of the node remains same after a path is explored so that it will not be explored again. Or we can say that pure DFS is a variant of backtracking in which state of visited nodes are not restored, and this variant is only useful for problems related to searching (reachability, etc) and not for problems involving pattern finding, for which we need to use the usual backtracking tree pruning algorithm.
+1) What is difference between backtracking and depth first search?
+Ans - In Backtracking, we need to restore previous state of visited node, by making visited=false, after exploring current path whereas in DFS the state of the node remains same after a path is explored so that it will not be explored again. Or we can say that pure DFS is a variant of backtracking in which state of visited nodes are not restored, and this variant is only useful for problems related to searching (reachability, etc) and not for problems involving pattern finding, for which we need to use the usual backtracking tree pruning algorithm.
 DFS is quicker than a generic backtracking algorithm, due to the reason stated above.
+
+2) 4 directional moves Vs 2 directional moves in a matrix
+Logic - 4 directional moves generally require a visitied matrix.  
+
+3) In graph Problems, usually finding the left right up and down cells using a for loop throws TLE for some reason also making a separate isSafe function throws too.  
+
+4) Difference between Dijkstra and BFS
+Always use Dijkstra when you think path is weighted. We could use BFS too, it uses normal Queue compared to Dijkstra which uses Priority Queue. BFS complexity would be high even when each operation of PQ takes log(n) time. 
+
+5) Serialization of a Tree
+Searlizing is the process of converting the tree in sequence of string/array/bits and deserializing is the process of converting it back to the tree using that bits (array)
+Serialized = [1, 2, null, null, 3, 4, null, null, 5, null, null]
+
+Applications : 
+1) Differentiate between various subtrees of a tree
+
+6) Sliding Window : 
+

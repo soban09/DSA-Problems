@@ -43,8 +43,8 @@ vector<int> NGR(int *arr, int n){
 }
 
 int main(){
-    int arr[] = {1,3,2,4};
-    vector<int> v = NGR(arr, 4);
+    int arr[] = {10,6,8,5,11,9};
+    vector<int> v = NGR(arr, 6);
     for(auto a:v) cout<<a<<" ";
     return 0;
 }

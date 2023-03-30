@@ -29,7 +29,7 @@ bool ScrambleString(string a, string b){
             break;
         }
     }
-    return true;
+    return flag;
 }
 
 bool ScrambleStringMem(string a, string b){
