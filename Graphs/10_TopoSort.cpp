@@ -6,7 +6,8 @@ using namespace std;
 void dfs(int v, stack<int> &s, vector<int> graph[], vector<bool> &vis){
     vis[v]=true;
     for(auto &u:graph[v]){
-        if(!vis[u]) dfs(u, s, graph, vis);
+        if(!vis[u])
+            dfs(u, s, graph, vis);
     }
     s.push(v);
 }
@@ -25,7 +26,8 @@ int main(){
     stack<int> s;
     vector<bool> vis(n, false);
     for(int i=0; i<n; i++){
-        if(!vis[i]) dfs(i, s, graph, vis);
+        if(!vis[i])
+            dfs(i, s, graph, vis);
     }
 
     vector<int> v;

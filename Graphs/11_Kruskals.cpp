@@ -9,55 +9,65 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+class DisjointSet{
+    public : 
+        vector<int> parent, rank;
+        int groups;
+
+        DisjointSet(int n){
+            groups=n;
+            rank.resize(n, 0);
+            parent.resize(n);
+            for(int i=0; i<n; i++)
+                parent[i]=i;
+        }
+
+        int findParent(int node){
+            if(node==parent[node])
+                return node;
+            return parent[node] = findParent(parent[node]);
+        }
+
+        void makeParent(int u, int v){
+            int parent1 = findParent(u);
+            int parent2 = findParent(v);
+            if(parent1==parent2) return;
+
+            if(rank[parent1] < rank[parent2]){
+                parent[parent1]=parent2;
+            } else if(rank[parent1] > rank[parent2]){
+                parent[parent2] = parent1;
+            } else{
+                parent[parent1]=parent2;
+                rank[parent2]++;
+            }
+        }
+
+        bool isUnited(){
+            return groups==1;
+        }
+};
+
 struct Edge{
     int w;
     int u;
     int v;
 };
 
-int findParent(vector<pair<int, int>> &subset, int i){
-    auto &[rank, parent] = subset[i];
-    if(parent==i) return i;
-    
-    return parent = findParent(subset, parent);
-}
-
-void makeParent(vector<pair<int, int>> &subset, int u, int v){
-    auto &[rank1, parent1] = subset[u];
-    auto &[rank2, parent2] = subset[v];
-
-    // make v parent of u
-    if(rank1<rank2){
-        parent1 = v;
-    }
-    // make u parent of v
-    else if(rank1>rank2){
-        parent2 = u;
-    }
-    else{
-        parent1 = v;
-        rank2++;
-    }
-}
-
 int Kruskals(vector<Edge> graph, int n){
-    vector<pair<int, int>> subset(n);
+    DisjointSet dsu(n);
+    
     int MinWeight=0;
-
-    for(int i=0; i<n; i++){
-        auto &[rank, parent] = subset[i];
-        rank=0;
-        parent=i;
-    }
 
     int i=0;
     for(auto &[w,u,v]:graph){
-        int x = findParent(subset, u);
-        int y = findParent(subset, v);
+        int parent1 = dsu.findParent(u);
+        int parent2 = dsu.findParent(v);
         
-        if(x!=y){
+        // if cycle cant be made 
+        if(parent1!=parent2){
             // make parent according to rank
-            makeParent(subset,u,v); 
+            dsu.makeParent(u,v); 
             MinWeight+=w;
             cout<<u<<"--"<<v<<" : "<<w<<endl;
             i++;

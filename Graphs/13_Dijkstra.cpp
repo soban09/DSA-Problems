@@ -28,7 +28,7 @@ void Dijkstra(vector<pi> graph[], int n, int a, int b){
     
     vector<int> parent(n, -1);
     vector<int> weight(n, INT16_MAX);
-    vector<bool> visited(n, false);
+    // vector<bool> visited(n, false);
 
     priority_queue<pi, vector<pi>, greater<pi>> heap;
     heap.push({0,0});
@@ -37,16 +37,17 @@ void Dijkstra(vector<pi> graph[], int n, int a, int b){
     
     while(!heap.empty()){
         // least weighted node
+        int nodeWt = heap.top().first;
         int u = heap.top().second;
         heap.pop();
-        visited[u]=true;
+        // visited[u]=true;
 
         //every neighbours of u (least weighted node)
         for(auto &[edgeWt,v]:graph[u]){
 
             // if edgeWeight is less than the weight of the node then update
-            if(!visited[v] && edgeWt+weight[u]<weight[v]){
-                weight[v]=edgeWt+weight[u];
+            if(edgeWt+nodeWt<weight[v]){
+                weight[v]=edgeWt+nodeWt;
                 heap.push({weight[v],v});
                 parent[v]=u;
             }
